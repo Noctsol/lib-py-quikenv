@@ -10,7 +10,7 @@ Summary:
     - Getting environment variable required the use of dotenv and os.getenv(). Why not just put this functionality into one class?
         - There should have been a Get() function like in here
 
-    - As a pro, the project was easy to use,made sense, and was well-documented. I'm just lazy.
+    - As a project, the project was easy to use, made sense, and was well-documented. I'm just lazy.
 
 """
 
@@ -32,7 +32,7 @@ class Quikenv():
     - Getting environment variable required the use of dotenv and os.getenv(). Why not just put this functionality into one class?
         - There should have been a Get() function like in here
 
-    - As a pro, the project was easy to use and made sense and was well-documented
+    - As a project, the project was easy to use and made sense and was well-documented
     '''
 
     def __init__(self, env_file_path):
@@ -133,8 +133,15 @@ class Quikenv():
 
         return value
 
+############################ FUNCTIONS ############################
 
-############################ Exceptions ############################
+def lazy_load():
+    return Quikenv.lazy_load()
+
+def proper_load(file_path):
+    return Quikenv.proper_load(file_path)
+
+############################ EXCEPTIONS ############################
 class EnvVarNotSet(Exception):
     '''Exception for when we didn't load'''
 

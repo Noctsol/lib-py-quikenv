@@ -7,3 +7,8 @@ Summary:
     Just here for messing around.
 
 """
+
+# from quikenv import Quikenv
+
+# x = main.Quikenv.lazy_load()
+# print(x.environment_variables)

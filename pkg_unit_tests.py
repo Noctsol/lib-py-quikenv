@@ -11,7 +11,7 @@ Summary:
 
 
 # Local import
-from src.quikenv import main as qui
+from src.quikenv import quikenv as qui
 
 # Pre-installed
 import unittest

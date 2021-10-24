@@ -12,11 +12,11 @@ I really liked the project but wanted something even more lazy. All credit goes 
 
 This wrapper has the following features:
 
-- A lazy_load() classmethod that automatically looks for for your .env file in the current working directory and 2 dirs up
+- A ezload() classmethod that automatically looks for for your .env file in the current working directory and 2 dirs up
 ```{python}
 import quikenv
 
-env = quikenv.lazy_load()
+env = quikenv.ezload()
 var = env.get("my_environment_var")
 
 ```
@@ -32,7 +32,7 @@ var = env.get("my_environment_var")
 
 - A normal procedural start for the class
 ```{python}
-import quikenv
+from quikenv import quikenv
 
 env_path = "C:/somedir/.env"
 env = quickenv.Quikenv(env_path)
