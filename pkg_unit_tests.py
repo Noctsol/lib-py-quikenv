@@ -11,7 +11,6 @@ Summary:
 
 
 # Local import
-# from src.quikenv import quikenv as qui
 from src import quikenv
 
 # Pre-installed
