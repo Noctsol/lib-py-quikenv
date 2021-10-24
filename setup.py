@@ -52,8 +52,11 @@ with open(file_path) as f:
     text = f.read()
 packages_list = text.split("\n")
 
-# Writes the packagae version with any PYPI releases
-with open(os.path.join(REL_PATH_TO_PROJECT, "VERSION.txt"), "w", encoding="utf-8") as fh:
+# Writes the package version with any PYPI releases
+with open(os.path.join(REL_PATH_TO_PROJECT, "VERSION"), "w", encoding="utf-8") as fh:
+    fh.write(f"{git_tag_version}\n")
+
+with open(os.path.join("src", "VERSION"), "w", encoding="utf-8") as fh:
     fh.write(f"{git_tag_version}\n")
 
 # Read the README file to get a long description for the package

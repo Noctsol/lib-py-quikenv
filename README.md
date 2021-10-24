@@ -34,7 +34,7 @@ print(env.environment_variables)
 
 - A normal procedural start for the class
 ```{python}
-from quikenv import quikenv
+import quikenv
 
 env_path = "C:/somedir/.env"
 env = quickenv.Quikenv(env_path)
