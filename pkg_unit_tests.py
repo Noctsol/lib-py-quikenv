@@ -24,8 +24,8 @@ class PkgTest(unittest.TestCase):
     """ Unit tests """
     def __init__(self, methodName: str = ...) -> None:
         super().__init__(methodName=methodName)
-        self.env_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), ".env")
-        self.empty_env_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ref/empty.env")
+        self.env_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+        self.empty_env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ref/empty.env")
         self.key = "yoursecret1"
 
     def test_load_empty(self):
