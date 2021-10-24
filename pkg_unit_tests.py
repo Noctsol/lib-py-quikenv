@@ -32,8 +32,6 @@ class PkgTest(unittest.TestCase):
 
     def test_load_empty(self):
         """Checks that load() function fails with empty string"""
-        print(self.file_dir)
-        print(os.listdir(self.root_dir))
         env = quikenv.Quikenv("")
         with self.assertRaises(ValueError):
             env.load()
