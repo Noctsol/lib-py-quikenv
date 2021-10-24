@@ -11,7 +11,8 @@ Summary:
 
 
 # Local import
-from src.quikenv import quikenv as qui
+# from src.quikenv import quikenv as qui
+from src import quikenv
 
 # Pre-installed
 import unittest
@@ -29,48 +30,48 @@ class PkgTest(unittest.TestCase):
 
     def test_load_empty(self):
         """Checks that load() function fails with empty string"""
-        env = qui.Quikenv("")
+        env = quikenv.Quikenv("")
         with self.assertRaises(ValueError):
             env.load()
 
     def test_load_none(self):
         """Checks that load() function fails with NONE"""
-        env = qui.Quikenv(None)
+        env = quikenv.Quikenv(None)
         with self.assertRaises(ValueError):
             env.load()
 
     def test_lazyload(self):
         """Checks that the lazy_load() function finds the .env file"""
-        env = qui.Quikenv.lazy_load()
+        env = quikenv.ezload()
         self.assertTrue(isinstance(env.get(self.key), str))
 
     def test_lazyload_nofile(self):
         """Checks that the lazy_load() function errors out when no .env file is found"""
         os.chdir("../")
-        with self.assertRaises(qui.EnvFileNotExist):
-            qui.Quikenv.lazy_load()
+        with self.assertRaises(quikenv.EnvFileNotExist):
+            quikenv.ezload()
 
     def test_proper_load(self):
         """Check that the peroper_load() function finds the env file and can get a env var"""
-        env = qui.Quikenv.proper_load(self.env_file_path)
+        env = quikenv.Quikenv.proper_load(self.env_file_path)
         self.assertTrue(isinstance(env.get(self.key), str))
 
     def test_get(self):
         """Checks that we successfully retrieve a environment variable"""
-        env = qui.Quikenv(self.env_file_path)
+        env = quikenv.Quikenv(self.env_file_path)
         env.load()
         self.assertTrue(isinstance(env.get(self.key), str))
 
     def test_get_nonexistent(self):
         """Checks that error is returned if no variable does not exist"""
-        env = qui.Quikenv.proper_load(self.empty_env_path)
-        with self.assertRaises(qui.EnvVarNotExistError):
+        env = quikenv.proper_load(self.empty_env_path)
+        with self.assertRaises(quikenv.EnvVarNotExistError):
             env.get("nonexistent")
 
     def test_get_empty(self):
         """Checks that error is returned if we get an empty value for a variable"""
-        env = qui.Quikenv.proper_load(self.env_file_path)
-        with self.assertRaises(qui.EnvVarEmptyError):
+        env = quikenv.proper_load(self.env_file_path)
+        with self.assertRaises(quikenv.EnvVarEmptyError):
             env.get("theempty")
 
 

@@ -14,7 +14,7 @@ Summary:
 
 """
 
-
+from .custom_exceptions import EnvFileNotExist, EnvVarNotSet, EnvVarNotExistError, EnvVarEmptyError
 
 # Pre-installed packages
 from pathlib import Path
@@ -135,38 +135,14 @@ class Quikenv():
 
 ############################ FUNCTIONS ############################
 
-def lazy_load():
+def ezload():
+    """ Auto load environment variables by looking in multiple directories"""
     return Quikenv.lazy_load()
 
 def proper_load(file_path):
+    """Takes a given file path and return a Quikenv object loaded up already
+
+    Args:
+        file_path (string): file path of env file
+    """
     return Quikenv.proper_load(file_path)
-
-############################ EXCEPTIONS ############################
-class EnvVarNotSet(Exception):
-    '''Exception for when we didn't load'''
-
-    def __init__(self):
-        self.message = "Environment not set - please call Environment.load_env()"
-        super().__init__(self.message)
-
-class EnvVarNotExistError(Exception):
-    '''Exception for when we call a nonexistent item'''
-
-    def __init__(self, env_key):
-        self.message = f"Environment variable key '{env_key}' not found"
-        super().__init__(self.message)
-
-class EnvVarEmptyError(Exception):
-    '''Exception for when a environment var is empty or null'''
-
-    def __init__(self, env_key):
-        self.message = f"Environment variable key '{env_key}' has an empty or null value"
-        super().__init__(self.message)
-
-class EnvFileNotExist(Exception):
-    '''Exception for when .env file is not found'''
-
-    def __init__(self, path_list):
-        paths_string = ", ".join(path_list)
-        self.message = f"Create an env file please. Unable to find .env file in any of the following paths: {paths_string}"
-        super().__init__(self.message)
