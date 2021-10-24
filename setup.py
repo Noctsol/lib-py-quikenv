@@ -53,11 +53,6 @@ with open(file_path) as f:
     text = f.read()
 packages_list = text.split("\n")
 
-# Writes the package version with any PYPI releases
-with open(os.path.join(DATA_DIR, "VERSION"), "w", encoding="utf-8") as fh:
-    fh.write(f"{git_tag_version}\n")
-
-
 # Read the README file to get a long description for the package
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -94,7 +89,6 @@ setuptools.setup(
     ],
     package_dir={"": "src"},
     packages=[PROJECT_NAME],
-    package_data={DATA_DIR: DATA_FILES},
     python_requires=">=3.5",
     install_requires=packages_list
 )
