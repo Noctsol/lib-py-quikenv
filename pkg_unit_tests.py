@@ -24,12 +24,16 @@ class PkgTest(unittest.TestCase):
     """ Unit tests """
     def __init__(self, methodName: str = ...) -> None:
         super().__init__(methodName=methodName)
-        self.env_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
-        self.empty_env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ref/empty.env")
+        self.file_dir = os.path.abspath(__file__)
+        self.root_dir = os.path.dirname(self.file_dir)
+        self.env_file_path = os.path.join(self.root_dir, ".env")
+        self.empty_env_path = os.path.join(self.root_dir, "ref/empty.env")
         self.key = "yoursecret1"
 
     def test_load_empty(self):
         """Checks that load() function fails with empty string"""
+        print(self.file_dir)
+        print(os.listdir(self.root_dir))
         env = quikenv.Quikenv("")
         with self.assertRaises(ValueError):
             env.load()
