@@ -10,8 +10,8 @@ Summary:
 
 
 
-# From PYPI
-from src import quikenv as qui
+# Local import
+from src.quikenv import main as qui
 
 # Pre-installed
 import unittest
