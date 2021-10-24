@@ -27,7 +27,7 @@ SHORT_DESCRIPT = "REALLY quick(and lazy way) to use the python dot-env project."
 # URL of your project - usually github repo
 PROJECT_URL = "https://github.com/Noctsol/lib-py-quikenv"
 
-DATA_DIR = "src/data/"
+DATA_DIR = "src"
 DATA_FILES = ["VERSION"]
 ### THINGS YOU NEED TO FILL OUT - END
 
@@ -56,7 +56,6 @@ packages_list = text.split("\n")
 # Writes the package version with any PYPI releases
 with open(os.path.join(DATA_DIR, "VERSION"), "w", encoding="utf-8") as fh:
     fh.write(f"{git_tag_version}\n")
-
 
 
 # Read the README file to get a long description for the package
