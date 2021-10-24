@@ -5,7 +5,12 @@ This was wrapper around the python dot-env project at
 - https://github.com/theskumar/python-dotenv
 - https://pypi.org/project/python-dotenv/
 
-I really liked the project, but wanted something even more lazy. This wrapper has the following features:
+Here is the pypi release I made:
+- https://pypi.org/project/quikenv/
+
+I really liked the project but wanted something even more lazy. All credit goes to the original developers. I only added features I wanted on top of an already really great project.
+
+This wrapper has the following features:
 
 - A lazy_load() classmethod that automatically looks for for your .env file in the current working directory and 2 dirs up
 ```{python}
