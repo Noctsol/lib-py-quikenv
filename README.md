@@ -18,6 +18,7 @@ import quikenv
 
 env = quikenv.ezload()
 var = env.get("my_environment_var")
+print(env.environment_variables)
 
 ```
 
@@ -28,6 +29,7 @@ import quikenv
 env_path = "C:/somedir/.env"
 env = quikenv.proper_load(env_path)
 var = env.get("my_environment_var")
+print(env.environment_variables)
 ```
 
 - A normal procedural start for the class
@@ -38,6 +40,7 @@ env_path = "C:/somedir/.env"
 env = quickenv.Quikenv(env_path)
 env.load()
 var = env.get("my_environment_var")
+print(env.environment_variables)
 ```
 - A lot of safety features (I don't think speed is relevant here):
     - Errors out when you give it an invalid file path to the .env file
