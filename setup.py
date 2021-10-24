@@ -17,7 +17,7 @@ import setuptools
 
 ### THINGS YOU NEED TO FILL OUT - START
 
-PROJECT_NAME = "myprojectname"  # What shows up on pypi and is used for pip install
+PROJECT_NAME = "quickenv"  # What shows up on pypi and is used for pip install
 AUTHOR = "Noctsol"              # Author of this project
 EMAIL = "noctsol@pm.me"         # Your email address
 
