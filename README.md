@@ -16,8 +16,13 @@ This wrapper has the following features:
 ```{python}
 import quikenv
 
+# Call function to look for .env file in root and a couple dirs up
 env = quikenv.ezload()
+
+# Get environment variable
 var = env.get("my_environment_var")
+
+# Print out environment
 print(env.environment_variables)
 
 ```
@@ -26,9 +31,16 @@ print(env.environment_variables)
 ```{python}
 import quikenv
 
+# Point to .env file
 env_path = "C:/somedir/.env"
+
+# Initialize
 env = quikenv.proper_load(env_path)
+
+# Get environment variable
 var = env.get("my_environment_var")
+
+# Print out environment
 print(env.environment_variables)
 ```
 
@@ -36,10 +48,19 @@ print(env.environment_variables)
 ```{python}
 import quikenv
 
+# Get .env file path
 env_path = "C:/somedir/.env"
+
+# Initialize
 env = quickenv.Quikenv(env_path)
+
+# Load/read env file
 env.load()
+
+# Get a var
 var = env.get("my_environment_var")
+
+# Print out vars
 print(env.environment_variables)
 ```
 - A lot of safety features (I don't think speed is relevant here):
